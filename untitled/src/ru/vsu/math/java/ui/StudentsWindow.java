@@ -2,12 +2,9 @@ package ru.vsu.math.java.ui;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import javax.swing.JFrame;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.SwingUtilities;
+import javax.swing.*;
 
-public class StudentsWindow{
+public class StudentsWindow extends JFrame {
     //Массив содержащий заголоки таблицы
     String[] headers = {"ФИО","Курс","Группа" };
 
@@ -28,13 +25,11 @@ public class StudentsWindow{
     //Объект таблицы
     JTable studentsTab;
 
-    StudentsWindow() {
-        //Создаем новый контейнер JFrame
-        JFrame jfrm = new JFrame("Список студентов");
-        //Устанавливаем диспетчер компоновки
-        jfrm.getContentPane().setLayout(new FlowLayout());
+    public StudentsWindow() {
+        super("Список студентов");
+        this.getContentPane().setLayout(new FlowLayout());
         //Устанавливаем размер окна
-        jfrm.setSize(1000, 170);
+        this.setSize(1000, 170);
         //Создаем новую таблицу на основе двумерного массива данных и заголовков
         studentsTab = new JTable(data, headers);
         //studentsTab = new JTable(new UTableModel());
@@ -43,19 +38,6 @@ public class StudentsWindow{
         //Устаналиваем размеры прокручиваемой области
         studentsTab.setPreferredScrollableViewportSize(new Dimension(950, 170));
         //Добавляем в контейнер нашу панель прокрути и таблицу вместе с ней
-        jfrm.getContentPane().add(jscrlp);
-        //Отображаем контейнер
-        jfrm.setVisible(true);
-    }
-
-    //Функция main, запускающаяся при старте приложения
-    public static void main(String[] args) {
-        //Создаем фрейм в потоке обработки событий
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new StudentsWindow();
-            }
-        });
+        this.getContentPane().add(jscrlp);
     }
 }

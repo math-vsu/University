@@ -8,9 +8,7 @@ public class Main {
     Application app = Application.getInstance();
     //Seeder.createData(app);
 
-    //ConsoleController consoleController = new ConsoleController(app);
-    //consoleController.run();
-    MainUI mainUI = new MainUI();
+    MainUI mainUI = new MainUI(app);
     mainUI.setVisible(true);
   }
 }
