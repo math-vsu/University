@@ -20,7 +20,7 @@ public class MainUI extends JFrame implements ActionListener {
         super("University"); //Заголовок окна
 
         this.app = app;
-        studentsWindow = new StudentsWindow();
+        studentsWindow = new StudentsWindow(app);
 
         setBounds(100, 100, 1000, 300); //Если не выставить размер и положение - то окно будет мелкое и незаметное
 
@@ -53,7 +53,6 @@ public class MainUI extends JFrame implements ActionListener {
         Object src = actionEvent.getSource();
 
         if (src == studentsListButton) {
-            System.out.println("Click1!");
             studentsWindow.setVisible(true);
         }
     }

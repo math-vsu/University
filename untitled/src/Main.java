@@ -6,7 +6,7 @@ import ru.vsu.math.java.ui.*;
 public class Main {
   public static void main(String[] args) {
     Application app = Application.getInstance();
-    //Seeder.createData(app);
+    Seeder.createData(app);
 
     MainUI mainUI = new MainUI(app);
     mainUI.setVisible(true);
