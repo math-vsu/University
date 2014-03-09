@@ -2,3 +2,12 @@
 org.h2.jdbc.JdbcSQLException: Таблица "STUDENTS" не найдена
 Table "STUDENTS" not found; SQL statement:
 SELECT * FROM students [42102-175]
+03-10 00:29:55 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "STUDENTS" already exists; SQL statement:
+create table students(id integer auto_increment NOT NULL, fullname varchar(255) NOT NULL, group_id integer NOT NULL, PRIMARY KEY (id)) [42101-175]
+03-10 00:30:12 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "STUDENTS" already exists; SQL statement:
+create table students(id integer auto_increment NOT NULL, fullname varchar(255) NOT NULL, group_id integer NOT NULL, PRIMARY KEY (id)) [42101-175]
+03-10 00:30:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "STUDENTS" already exists; SQL statement:
+create table students(id integer auto_increment NOT NULL, fullname varchar(255) NOT NULL, group_id integer NOT NULL, PRIMARY KEY (id)) [42101-175]
