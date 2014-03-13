@@ -15,13 +15,15 @@ public class MainUI extends JFrame implements ActionListener {
     private JButton addStudentButton;
     private JButton deleteStudentButton;
     private StudentsWindow studentsWindow;
+    private AddStudentWindow addStudentWindow;
+    private DeleteStudentWindow deleteStudentWindow;
 
     public MainUI(Application app) {
         super("University"); //Заголовок окна
 
         this.app = app;
         studentsWindow = new StudentsWindow(app);
-
+        deleteStudentWindow = new DeleteStudentWindow(app);
         setBounds(100, 100, 1000, 300); //Если не выставить размер и положение - то окно будет мелкое и незаметное
 
         //Компоненты объекта
@@ -33,8 +35,9 @@ public class MainUI extends JFrame implements ActionListener {
         tutorsListButton = new JButton("Вывести список преподавателей");
         groupsListButton = new JButton("Вывести список групп");
         addStudentButton = new JButton("Добавить студента");
+        addStudentButton.addActionListener(this);
         deleteStudentButton = new JButton("Удалить студента");
-
+        deleteStudentButton.addActionListener(this);
         //Подготавливаем временные компоненты
         JPanel buttonsPanel = new JPanel(new FlowLayout());
 
@@ -55,5 +58,16 @@ public class MainUI extends JFrame implements ActionListener {
         if (src == studentsListButton) {
             studentsWindow.setVisible(true);
         }
+
+        if (src == addStudentButton) {
+            addStudentWindow.setVisible(true);
+        }
+
+        if (src == deleteStudentButton) {
+            deleteStudentWindow.setVisible(true);
+        }
+
+
+
     }
 }
