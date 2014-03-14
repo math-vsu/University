@@ -24,17 +24,9 @@ public class Application {
     addStudent(fullName, group, studentId).save();
   }
 
-  public void deleteStudent(Integer id){
-     Student studentToDelete;
-     for(Student student : students){
-        if(id==student.getStudentId()){
-            studentToDelete=student;
-            students.remove(studentToDelete);
-            student.delete();
-        }
-        break;
-     }
-
+  public void deleteStudent(Student student){
+     students.remove(student);
+     student.delete();
   }
 
   public Student addStudent(String fullName, Group group, Integer studentId) {
