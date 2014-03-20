@@ -39,7 +39,7 @@ public class DeleteStudentWindow extends JFrame implements ActionListener {
         Student student;
         if (src == deleteStudent) {
              int selectedIndex = combo1.getSelectedIndex();
-             System.out.println(selectedIndex);
+             combo1.removeItemAt(selectedIndex);
              student = (Student)app.getStudents().get(selectedIndex);
              app.deleteStudent(student);
         }
