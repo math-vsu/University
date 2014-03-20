@@ -15,16 +15,18 @@ public class StudentsWindow extends JFrame {
     //Объект таблицы
     JTable studentsTab;
     Application app;
+    StudentsTableModel model;
 
     public StudentsWindow(Application app) {
         super("Список студентов");
         this.app = app;
+        this.model = new StudentsTableModel();
 
         this.getContentPane().setLayout(new FlowLayout());
         //Устанавливаем размер окна
         this.setSize(1000, 170);
         //Создаем новую таблицу на основе двумерного массива данных и заголовков
-        studentsTab = new JTable(studentsData(), headers);
+        studentsTab = new JTable(model);
         //studentsTab = new JTable(new UTableModel());
         //Создаем панель прокрутки и включаем в ее состав нашу таблицу
         JScrollPane jscrlp = new JScrollPane(studentsTab);
@@ -34,20 +36,4 @@ public class StudentsWindow extends JFrame {
         this.getContentPane().add(jscrlp);
     }
 
-    public String[][] studentsData() {
-        List<String[]> data = new ArrayList<String[]>();
-        List<Student> students = app.getStudents();
-
-        for (Student student : students) {
-            data.add(new String[] {
-                            student.getFullName(),
-                            "TODO",
-                            "TODO"
-                    }
-            );
-        }
-        // Какой-то грязный хак, но как по-быстрому в java сделать двумерную динамическую матрицу я не помню
-        String[][] result = data.toArray(new String[0][]);
-        return result;
-    }
 }

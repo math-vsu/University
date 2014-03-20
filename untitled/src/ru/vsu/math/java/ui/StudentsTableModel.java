@@ -2,30 +2,33 @@ package ru.vsu.math.java.ui;
 import ru.vsu.math.java.Application;
 import ru.vsu.math.java.entity.Student;
 
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import javax.swing.table.AbstractTableModel;
 
 /**
  * Created by Дмитрий on 09.03.14.
  */
-public class UTableModel extends AbstractTableModel {
-    Application app = new Application();
+public class StudentsTableModel extends AbstractTableModel implements TableModelListener {
+
     @Override
     public int getRowCount() {
-        return app.getStudents().size();
+        return Application.getInstance().getStudents().size();
     }
     @Override
     public int getColumnCount() {
         return 3;
     }
     @Override
-    public Object getValueAt(int r, int c) {
-        switch (c) {
+    public String getValueAt(int row, int column) {
+        Student student = (Student) Application.getInstance().getStudents().get(row);
+        switch (column) {
             case 0:
-               // return //app.getStudents().getFullName();
+                return student.getFullName();
             case 1:
-               // return //app.getStudents().getGroup();
+                return "TODO";
             case 2:
-               // return //app.getStudents().id();
+                return student.id().toString();
             default:
                 return "";
         }
@@ -47,5 +50,10 @@ public class UTableModel extends AbstractTableModel {
                 return "";
         }
         return result;
+    }
+
+    @Override
+    public void tableChanged(TableModelEvent tableModelEvent) {
+        System.out.println("Data changed!!");
     }
 }
