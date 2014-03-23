@@ -20,9 +20,10 @@ public class MainUI extends JFrame implements ActionListener {
 
     public MainUI(Application app) {
         super("University"); //Заголовок окна
-
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.app = app;
         studentsWindow = new StudentsWindow(app);
+        addStudentWindow = new AddStudentWindow(app);
         deleteStudentWindow = new DeleteStudentWindow(app);
         setBounds(100, 100, 1000, 300); //Если не выставить размер и положение - то окно будет мелкое и незаметное
 

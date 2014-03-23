@@ -1,6 +1,8 @@
 package ru.vsu.math.java.entity;
 import ru.vsu.math.java.entity.Group;
 import ru.vsu.math.java.*;
+
+import java.security.PublicKey;
 import java.sql.*;
 
 public class Student extends SQLRecord {
@@ -59,5 +61,9 @@ public class Student extends SQLRecord {
     } catch(SQLException e) {
       e.printStackTrace();
     }
+  }
+
+  public  String toString(){
+      return getFullName();
   }
 }

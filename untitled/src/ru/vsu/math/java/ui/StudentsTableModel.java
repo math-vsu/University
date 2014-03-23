@@ -28,7 +28,7 @@ public class StudentsTableModel extends AbstractTableModel implements TableModel
             case 1:
                 return "TODO";
             case 2:
-                return student.id().toString();
+                return "";
             default:
                 return "";
         }
