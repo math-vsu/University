@@ -266,8 +266,6 @@ create table students(id integer auto_increment NOT NULL, fullname varchar(255) 
 org.h2.jdbc.JdbcSQLException: Таблица "STUDENTS" уже существует
 Table "STUDENTS" already exists; SQL statement:
 create table students(id integer auto_increment NOT NULL, fullname varchar(255) NOT NULL, group_id integer NOT NULL, PRIMARY KEY (id)) [42101-175]
-<<<<<<< HEAD
-=======
 03-28 08:54:37 jdbc[4]: exception
 org.h2.jdbc.JdbcSQLException: Таблица "STUDENTS" уже существует
 Table "STUDENTS" already exists; SQL statement:
@@ -352,4 +350,3 @@ create table students(id integer auto_increment NOT NULL, fullname varchar(255) 
 org.h2.jdbc.JdbcSQLException: Таблица "STUDENTS" уже существует
 Table "STUDENTS" already exists; SQL statement:
 create table students(id integer auto_increment NOT NULL, fullname varchar(255) NOT NULL, group_id integer NOT NULL, PRIMARY KEY (id)) [42101-175]
->>>>>>> Редактирование Студента

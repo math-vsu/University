@@ -20,17 +20,8 @@ public class DeleteStudentWindow extends JFrame implements ActionListener {
         setBounds(100, 100, 700, 700);
         this.app = app;
         List<Student>students = app.getStudents();
-<<<<<<< HEAD
-//        String[] items = new String[students.size()];
-//        for(int i=0; i<students.size(); i++) {
-//            items[i]=students.get(i).getFullName();
-//        }
-        StudentsComboBoxModel model = new StudentsComboBoxModel(students);
-        combo1 = new JComboBox(model);
-=======
         StudentsComboBoxModel model = new StudentsComboBoxModel(students);
         deleteStudentComboBox = new JComboBox(model);
->>>>>>> Редактирование Студента
         deleteStudent = new JButton("Удалить студента");
         deleteStudent.addActionListener(this);
         JPanel deleteStudentPanel = new JPanel(new GridLayout(0, 1));
