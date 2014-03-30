@@ -66,4 +66,11 @@ public class Student extends SQLRecord {
   public  String toString(){
       return getFullName();
   }
+<<<<<<< HEAD
+=======
+  @Override
+  protected String updateString(){
+     return "fullName= '"+this.fullName+"'";
+  }
+>>>>>>> Редактирование Студента
 }

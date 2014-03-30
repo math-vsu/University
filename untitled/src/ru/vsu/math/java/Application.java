@@ -57,6 +57,10 @@ public class Application {
     return this.groups;
   }
 
+  public void updateStudent(Student student, String fullName){
+      student.setFullName(fullName);
+      student.update();
+  }
   private void loadCollections() {
     loadStudents();
   }
@@ -67,6 +71,7 @@ public class Application {
     Student studentLoader = new Student(null, null,null);
     studentLoader.loadCollection();
   }
+
 
 
 }

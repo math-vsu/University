@@ -8,6 +8,7 @@ public abstract class SQLRecord implements Savable {
   protected abstract String tableName();
   protected abstract void buildObject(ResultSet row);
   protected abstract Integer id();
+  protected abstract String updateString();
 
   public void loadCollection() {
     try {
@@ -44,6 +45,19 @@ public abstract class SQLRecord implements Savable {
       try {
             String query =
                   "DELETE FROM " + tableName() + " WHERE id= " + id();
+
+          Statement stmt = null;
+          stmt = DbConnection.get(dbName).createStatement();
+          stmt.executeUpdate(query);
+      } catch(Exception e) {
+          e.printStackTrace();
+      }
+  }
+
+  public void update(){
+      try {
+          String query =
+                  "UPDATE " + tableName() + " SET " + updateString()+ " WHERE id=" + id();
 
           Statement stmt = null;
           stmt = DbConnection.get(dbName).createStatement();

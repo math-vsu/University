@@ -266,3 +266,90 @@ create table students(id integer auto_increment NOT NULL, fullname varchar(255) 
 org.h2.jdbc.JdbcSQLException: Таблица "STUDENTS" уже существует
 Table "STUDENTS" already exists; SQL statement:
 create table students(id integer auto_increment NOT NULL, fullname varchar(255) NOT NULL, group_id integer NOT NULL, PRIMARY KEY (id)) [42101-175]
+<<<<<<< HEAD
+=======
+03-28 08:54:37 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "STUDENTS" уже существует
+Table "STUDENTS" already exists; SQL statement:
+create table students(id integer auto_increment NOT NULL, fullname varchar(255) NOT NULL, group_id integer NOT NULL, PRIMARY KEY (id)) [42101-175]
+03-28 08:55:38 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "STUDENTS" уже существует
+Table "STUDENTS" already exists; SQL statement:
+create table students(id integer auto_increment NOT NULL, fullname varchar(255) NOT NULL, group_id integer NOT NULL, PRIMARY KEY (id)) [42101-175]
+03-28 09:02:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "STUDENTS" уже существует
+Table "STUDENTS" already exists; SQL statement:
+create table students(id integer auto_increment NOT NULL, fullname varchar(255) NOT NULL, group_id integer NOT NULL, PRIMARY KEY (id)) [42101-175]
+03-28 09:08:32 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "STUDENTS" уже существует
+Table "STUDENTS" already exists; SQL statement:
+create table students(id integer auto_increment NOT NULL, fullname varchar(255) NOT NULL, group_id integer NOT NULL, PRIMARY KEY (id)) [42101-175]
+03-28 09:09:22 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "STUDENTS" уже существует
+Table "STUDENTS" already exists; SQL statement:
+create table students(id integer auto_increment NOT NULL, fullname varchar(255) NOT NULL, group_id integer NOT NULL, PRIMARY KEY (id)) [42101-175]
+03-28 09:13:33 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "STUDENTS" уже существует
+Table "STUDENTS" already exists; SQL statement:
+create table students(id integer auto_increment NOT NULL, fullname varchar(255) NOT NULL, group_id integer NOT NULL, PRIMARY KEY (id)) [42101-175]
+03-28 09:35:59 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "STUDENTS" уже существует
+Table "STUDENTS" already exists; SQL statement:
+create table students(id integer auto_increment NOT NULL, fullname varchar(255) NOT NULL, group_id integer NOT NULL, PRIMARY KEY (id)) [42101-175]
+03-28 09:36:06 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "STUDENTSSETFULLNAME" не найдена
+Table "STUDENTSSETFULLNAME" not found; SQL statement:
+UPDATE studentsSETfullName= 'Измайлова Марина Анатольевна' WHERE id=7 [42102-175]
+03-28 09:36:27 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "STUDENTS" уже существует
+Table "STUDENTS" already exists; SQL statement:
+create table students(id integer auto_increment NOT NULL, fullname varchar(255) NOT NULL, group_id integer NOT NULL, PRIMARY KEY (id)) [42101-175]
+03-28 09:37:21 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "STUDENTSSETFULLNAME" не найдена
+Table "STUDENTSSETFULLNAME" not found; SQL statement:
+UPDATE studentsSETfullName= 'Шилин Семен Иванович' WHERE id=5 [42102-175]
+03-28 09:37:52 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "STUDENTS" уже существует
+Table "STUDENTS" already exists; SQL statement:
+create table students(id integer auto_increment NOT NULL, fullname varchar(255) NOT NULL, group_id integer NOT NULL, PRIMARY KEY (id)) [42101-175]
+03-28 09:38:04 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "STUDENTSSETFULLNAME" не найдена
+Table "STUDENTSSETFULLNAME" not found; SQL statement:
+UPDATE studentsSETfullName= 'Микляев Владислав Иванович' WHERE id=6 [42102-175]
+03-28 09:38:50 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "STUDENTS" уже существует
+Table "STUDENTS" already exists; SQL statement:
+create table students(id integer auto_increment NOT NULL, fullname varchar(255) NOT NULL, group_id integer NOT NULL, PRIMARY KEY (id)) [42101-175]
+03-28 09:39:11 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "STUDENTS" уже существует
+Table "STUDENTS" already exists; SQL statement:
+create table students(id integer auto_increment NOT NULL, fullname varchar(255) NOT NULL, group_id integer NOT NULL, PRIMARY KEY (id)) [42101-175]
+03-28 09:39:25 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "STUDENTS" уже существует
+Table "STUDENTS" already exists; SQL statement:
+create table students(id integer auto_increment NOT NULL, fullname varchar(255) NOT NULL, group_id integer NOT NULL, PRIMARY KEY (id)) [42101-175]
+03-28 09:39:53 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "STUDENTS" уже существует
+Table "STUDENTS" already exists; SQL statement:
+create table students(id integer auto_increment NOT NULL, fullname varchar(255) NOT NULL, group_id integer NOT NULL, PRIMARY KEY (id)) [42101-175]
+03-28 09:40:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "STUDENTS" уже существует
+Table "STUDENTS" already exists; SQL statement:
+create table students(id integer auto_increment NOT NULL, fullname varchar(255) NOT NULL, group_id integer NOT NULL, PRIMARY KEY (id)) [42101-175]
+03-28 09:40:48 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "STUDENTS" уже существует
+Table "STUDENTS" already exists; SQL statement:
+create table students(id integer auto_increment NOT NULL, fullname varchar(255) NOT NULL, group_id integer NOT NULL, PRIMARY KEY (id)) [42101-175]
+03-28 09:42:58 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "STUDENTS" уже существует
+Table "STUDENTS" already exists; SQL statement:
+create table students(id integer auto_increment NOT NULL, fullname varchar(255) NOT NULL, group_id integer NOT NULL, PRIMARY KEY (id)) [42101-175]
+03-28 09:43:19 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "STUDENTS" уже существует
+Table "STUDENTS" already exists; SQL statement:
+create table students(id integer auto_increment NOT NULL, fullname varchar(255) NOT NULL, group_id integer NOT NULL, PRIMARY KEY (id)) [42101-175]
+03-28 09:45:54 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "STUDENTS" уже существует
+Table "STUDENTS" already exists; SQL statement:
+create table students(id integer auto_increment NOT NULL, fullname varchar(255) NOT NULL, group_id integer NOT NULL, PRIMARY KEY (id)) [42101-175]
+>>>>>>> Редактирование Студента
