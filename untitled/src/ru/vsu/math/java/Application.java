@@ -35,8 +35,18 @@ public class Application {
     return student;
   }
 
-  public void addTutor(String fullName) {
-    tutors.add(new Tutor(fullName));
+  public void createTutor(String fullName, Integer id){
+      addTutor(fullName,id).save();
+  }
+
+  public void deleteTutor(Tutor tutor){
+      tutors.remove(tutor);
+      tutor.delete();
+  }
+  public Tutor addTutor(String fullName, Integer id) {
+    Tutor tutor = new Tutor(fullName,id);
+    tutors.add(tutor);
+    return tutor;
   }
 
   public Group addGroup(Integer courseNumber, Integer groupNumber, Integer subGroupNumber) {
@@ -63,6 +73,7 @@ public class Application {
   }
   private void loadCollections() {
     loadStudents();
+    loadTutors();
   }
 
   private void loadStudents() {
@@ -72,6 +83,16 @@ public class Application {
     studentLoader.loadCollection();
   }
 
+    public void updateTutor(Tutor tutor, String fullName){
+        tutor.setFullName(fullName);
+        tutor.update();
+    }
 
+    private void loadTutors() {
+        // Грязный трюк, так делать не надо
+        // напомнить объяснить почему
+        Tutor tutorLoader = new Tutor(null, null);
+        tutorLoader.loadCollection();
+    }
 
 }

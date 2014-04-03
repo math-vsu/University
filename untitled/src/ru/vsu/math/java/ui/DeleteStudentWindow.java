@@ -39,6 +39,7 @@ public class DeleteStudentWindow extends JFrame implements ActionListener {
              deleteStudentComboBox.removeItemAt(selectedIndex);
              student = (Student)app.getStudents().get(selectedIndex);
              app.deleteStudent(student);
+             this.setVisible(false);
         }
 
     }

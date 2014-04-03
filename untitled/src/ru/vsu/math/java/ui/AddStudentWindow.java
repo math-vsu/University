@@ -34,6 +34,7 @@ public class AddStudentWindow extends JFrame implements ActionListener {
         if (src == addStudentButton){
             String name = studentFullNameField.getText();
             app.createStudent(name,null,null);
+            this.setVisible(false);
         }
 
     }

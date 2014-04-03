@@ -13,6 +13,7 @@ public class Seeder {
       String[] table_schemas = {
         "create table " +
         "students" +
+        "tutors" +
         "(id integer auto_increment NOT NULL, " +
         "fullname varchar(255) NOT NULL, " +
         "group_id integer NOT NULL, " +
@@ -59,9 +60,6 @@ public class Seeder {
       }
     }
 
-    app.addTutor("Прядко Ирина Николаевна");
-    app.addTutor("Бахтина Жанна Игоревна");
-    app.addTutor("Зубова Светлана Петровна");
   }
 
 }

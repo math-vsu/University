@@ -13,14 +13,25 @@ public class MainUI extends JFrame {
     private DeleteStudentWindow deleteStudentWindow;
     private EditStudentWindow editStudentWindow;
 
+    private TutorsWindow tutorsWindow;
+    private AddTutorWindow addTutorWindow;
+    private DeleteTutorWindow deleteTutorWindow;
+    private EditTutorWindow editTutorWindow;
+
     public MainUI(Application app) {
         super("University"); //Заголовок окна
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.app = app;
+
         studentsWindow = new StudentsWindow(app);
         addStudentWindow = new AddStudentWindow(app);
         deleteStudentWindow = new DeleteStudentWindow(app);
         editStudentWindow = new EditStudentWindow(app);
+
+        tutorsWindow = new TutorsWindow(app);
+        addTutorWindow = new AddTutorWindow(app);
+        deleteTutorWindow = new DeleteTutorWindow(app);
+        editTutorWindow = new EditTutorWindow(app);
         setBounds(400, 400, 400, 400); //Если не выставить размер и положение - то окно будет мелкое и незаметное
 
         //-------------------------Меню---------------------------------------------------//
@@ -102,18 +113,38 @@ public class MainUI extends JFrame {
         JMenuItem tutorsListItem = new JMenuItem("Вывести список преподавателей");
         tutorsListItem.setFont(font);
         tutorsMenu.add(tutorsListItem);
+        tutorsListItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                tutorsWindow.setVisible(true);
+            }
+        });
 
         JMenuItem addTutorItem = new JMenuItem("Добавить преподавателя");
         addTutorItem.setFont(font);
         tutorsMenu.add(addTutorItem);
+        addTutorItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                addTutorWindow.setVisible(true);
+            }
+        });
 
-        JMenuItem editTutorItem = new JMenuItem("Редактировать студента");
+        JMenuItem editTutorItem = new JMenuItem("Редактировать преподавателя");
         editTutorItem.setFont(font);
         tutorsMenu.add(editTutorItem);
+        editTutorItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                editTutorWindow.setVisible(true);
+            }
+        });
 
         JMenuItem deleteTutorItem = new JMenuItem("Удалить преподавателя");
         deleteTutorItem.setFont(font);
         tutorsMenu.add(deleteTutorItem);
+        deleteTutorItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                deleteTutorWindow.setVisible(true);
+            }
+        });
 
         //------------------------Меню Групп------------------------------------------//
         JMenu groupsMenu = new JMenu("Группы");
