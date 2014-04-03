@@ -13,11 +13,16 @@ public class Seeder {
       String[] table_schemas = {
         "create table " +
         "students" +
-        "tutors" +
         "(id integer auto_increment NOT NULL, " +
         "fullname varchar(255) NOT NULL, " +
         "group_id integer NOT NULL, " +
-        "PRIMARY KEY (id))",
+        "PRIMARY KEY (id));",
+
+        "create table " +
+        "tutors" +
+        "(id integer auto_increment NOT NULL, " +
+        "fullname varchar(255) NOT NULL, " +
+        "PRIMARY KEY (id));",
       };
 
       for (String table_schema : table_schemas) {
@@ -50,6 +55,18 @@ public class Seeder {
       "Ляхов Владислав Иванович"
     };
 
+    String[] tutorNames = {
+        "Каменский",
+        "Смагин",
+        "Новиков"
+    };
+
+    if (app.getTutors().isEmpty()) {
+      for (String name : tutorNames) {
+          app.createTutor(name, 1);
+      }
+    }
+
     Group group = app.addGroup(2, 3, 2);
 
     // Создаем студентов, только если их список пуст
@@ -59,6 +76,8 @@ public class Seeder {
         app.createStudent(name, group,0);
       }
     }
+
+
 
   }
 

@@ -12,7 +12,7 @@ public abstract class SQLRecord implements Savable {
 
   public void loadCollection() {
     try {
-      String query = "SELECT * FROM students";
+      String query = "SELECT * FROM " + tableName();
       Statement stmt = null;
       stmt = DbConnection.get(dbName).createStatement();
       ResultSet rs = stmt.executeQuery(query);
