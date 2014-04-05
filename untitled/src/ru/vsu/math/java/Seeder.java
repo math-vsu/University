@@ -23,6 +23,14 @@ public class Seeder {
         "(id integer auto_increment NOT NULL, " +
         "fullname varchar(255) NOT NULL, " +
         "PRIMARY KEY (id));",
+
+         "create table " +
+         "groups" +
+         "(id integer auto_increment NOT NULL, " +
+         "course varchar(255) NOT NULL, " +
+         "group varchar(255) NOT NULL, " +
+         "subgroup varchar(255) NOT NULL, " +
+         "PRIMARY KEY (id));",
       };
 
       for (String table_schema : table_schemas) {
@@ -67,7 +75,7 @@ public class Seeder {
       }
     }
 
-    Group group = app.addGroup(2, 3, 2);
+    Group group = app.addGroup("2", "3", "2");
 
     // Создаем студентов, только если их список пуст
     // A cписок бывает пустым только когда в файле ничего нет

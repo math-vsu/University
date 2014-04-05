@@ -18,6 +18,8 @@ public class MainUI extends JFrame {
     private DeleteTutorWindow deleteTutorWindow;
     private EditTutorWindow editTutorWindow;
 
+    private AddGroupWindow addGroupWindow;
+
     public MainUI(Application app) {
         super("University"); //Заголовок окна
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -32,6 +34,10 @@ public class MainUI extends JFrame {
         addTutorWindow = new AddTutorWindow(app);
         deleteTutorWindow = new DeleteTutorWindow(app);
         editTutorWindow = new EditTutorWindow(app);
+
+        addGroupWindow = new AddGroupWindow(app);
+
+
         setBounds(400, 400, 400, 400); //Если не выставить размер и положение - то окно будет мелкое и незаметное
 
         //-------------------------Меню---------------------------------------------------//
@@ -196,6 +202,13 @@ public class MainUI extends JFrame {
         JMenuItem addGroupItem = new JMenuItem("Добавить группу");
         addGroupItem.setFont(font);
         groupsMenu.add(addGroupItem);
+        addGroupItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                addGroupWindow.setVisible(true);
+            }
+        });
+
+
 
         JMenuItem editGroupItem = new JMenuItem("Редактировать группу");
         editGroupItem.setFont(font);

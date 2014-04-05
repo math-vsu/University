@@ -49,7 +49,10 @@ public class Application {
     return tutor;
   }
 
-  public Group addGroup(Integer courseNumber, Integer groupNumber, Integer subGroupNumber) {
+  public void createGroup(String courseNumber, String groupNumber, String subGroupNumber){
+      addGroup(courseNumber,groupNumber,subGroupNumber).save();
+  }
+  public Group addGroup(String courseNumber, String groupNumber, String subGroupNumber) {
     Group group = new Group(courseNumber, groupNumber, subGroupNumber);
     groups.add(group);
     return group;
@@ -74,6 +77,7 @@ public class Application {
   private void loadCollections() {
     loadStudents();
     loadTutors();
+    loadGroups();
   }
 
   private void loadStudents() {
@@ -94,5 +98,14 @@ public class Application {
         Tutor tutorLoader = new Tutor(null, null);
         tutorLoader.loadCollection();
     }
+
+    private void loadGroups() {
+        // Грязный трюк, так делать не надо
+        // напомнить объяснить почему
+        Group groupLoader = new Group(null, null,null);
+        groupLoader.loadCollection();
+    }
+
+
 
 }
