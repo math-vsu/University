@@ -57,6 +57,7 @@ public class AddGroupWindow extends JFrame implements ActionListener {
         Object src = actionEvent.getSource();
         Tutor tutor;
         if (src == addGroupButton){
+            app.createGroup(course.getText(), group.getText(), subgroup.getText());
             this.setVisible(false);
         }
 
