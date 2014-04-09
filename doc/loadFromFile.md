@@ -1,6 +1,6 @@
 ### Загрузка данных из файлов
 
-* Изучаем и навешиваем компонент (JFileChooser)[http://docs.oracle.com/javase/tutorial/uiswing/components/filechooser.html] на соответствующие пункты меню
+* Изучаем и навешиваем компонент [JFileChooser](http://docs.oracle.com/javase/tutorial/uiswing/components/filechooser.html) на соответствующие пункты меню
 * Создаем класс FileLoader
 * Наследуем от него StudentFileLoader, GroupFileLoader и TutorFileLoader
 * В FileLoader метод readAndCreateObjects(String filename), абстрактный метод buildObject()
