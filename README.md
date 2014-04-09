@@ -14,7 +14,7 @@ Java проект для Матфак ВГУ
 * ~~Редактирование студента~~
 * ~~JMenu~~
 * ~~CRUD преподов~~
-* Чтение списка студентов из файла и загрузка в БД(FileDialog)
+* [Чтение списка студентов из файла и загрузка в БД(FileDialog)](https://github.com/math-vsu/University/blob/master/doc/loadFromFile.md)
 * [Хранение Group в БД, CRUD(create, update, delete) групп по аналогии со студентами](https://github.com/math-vsu/University/blob/master/doc/groups.md)
 * При чтении студента ищем группу по полю Student.group_id, отображаем информацию о группе в списке студентов
 * Диалог просмотра отдельной группы(список студентов группы)
