@@ -46,7 +46,7 @@ public class Group extends SQLRecord{
 
     @Override
     protected String columnNames() {
-        return "(course,group,subgroup)";  //To change body of implemented methods use File | Settings | File Templates.
+        return "(course,group_num,subgroup)";
     }
 
     @Override
@@ -62,7 +62,7 @@ public class Group extends SQLRecord{
     @Override
     protected void buildObject(ResultSet row) {
         try {
-            Application.getInstance().addGroup(row.getString("course"), row.getString("group"), row.getString("subgroup"));
+            Application.getInstance().addGroup(row.getString("course"), row.getString("group_num"), row.getString("subgroup"));
         } catch(SQLException e) {
             e.printStackTrace();
         }
