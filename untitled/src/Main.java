@@ -8,10 +8,6 @@ public class Main {
     Application app = Application.getInstance();
     Seeder.createData(app);
 
-    for(Object group: app.getGroups()){
-        System.out.println(group);
-    }
-
     MainUI mainUI = new MainUI(app);
     mainUI.setVisible(true);
   }

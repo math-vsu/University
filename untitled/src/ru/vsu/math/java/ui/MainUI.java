@@ -169,6 +169,7 @@ public class MainUI extends JFrame {
         firstCourse.setFont(font);
         bachelorMenu.add(firstCourse);
 
+
         JMenu secondCourse = new JMenu("2 курс");
         secondCourse.setFont(font);
         bachelorMenu.add(secondCourse);
@@ -217,6 +218,16 @@ public class MainUI extends JFrame {
         JMenuItem deleteGroupItem = new JMenuItem("Удалить группу");
         deleteGroupItem.setFont(font);
         groupsMenu.add(deleteGroupItem);
+
+        JMenuItem allGroups = new JMenuItem("Все");
+        allGroups.setFont(font);
+        groupsMenu.add(allGroups);
+        allGroups.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                GroupsWindow groupsWindow = new GroupsWindow(Application.getInstance().getGroups());
+                groupsWindow.setVisible(true);
+            }
+        });
 
         //------------------------Меню Расписание------------------------------------------//
         JMenu timeTable = new JMenu("Расписание");
