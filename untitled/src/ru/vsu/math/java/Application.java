@@ -58,6 +58,11 @@ public class Application {
     return group;
   }
 
+  public void deleteGroup(Group group){
+      groups.remove(group);
+      group.delete();
+  }
+
   public List getStudents() {
     return this.students;
   }
@@ -98,7 +103,12 @@ public class Application {
         Tutor tutorLoader = new Tutor(null, null);
         tutorLoader.loadCollection();
     }
-
+    public void updateGroup(Group group, String courseNumber, String groupNumber,String subgroupNumber){
+        group.setCourseNumber(courseNumber);
+        group.setGroupNumber(groupNumber);
+        group.setSubGroupNumber(subgroupNumber);
+        group.update();
+    }
     private void loadGroups() {
         // Грязный трюк, так делать не надо
         // напомнить объяснить почему

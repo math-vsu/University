@@ -18,7 +18,10 @@ public class MainUI extends JFrame {
     private DeleteTutorWindow deleteTutorWindow;
     private EditTutorWindow editTutorWindow;
 
+    private GroupsWindow groupsWindow;
     private AddGroupWindow addGroupWindow;
+    private DeleteGroupWindow deleteGroupWindow;
+    private EditGroupWindow editGroupWindow;
 
     public MainUI(Application app) {
         super("University"); //Заголовок окна
@@ -35,7 +38,10 @@ public class MainUI extends JFrame {
         deleteTutorWindow = new DeleteTutorWindow(app);
         editTutorWindow = new EditTutorWindow(app);
 
+        groupsWindow = new GroupsWindow(app);
         addGroupWindow = new AddGroupWindow(app);
+        deleteGroupWindow = new DeleteGroupWindow(app);
+        editGroupWindow = new EditGroupWindow(app);
 
 
         setBounds(400, 400, 400, 400); //Если не выставить размер и положение - то окно будет мелкое и незаметное
@@ -209,23 +215,31 @@ public class MainUI extends JFrame {
             }
         });
 
-
-
         JMenuItem editGroupItem = new JMenuItem("Редактировать группу");
         editGroupItem.setFont(font);
         groupsMenu.add(editGroupItem);
+        editGroupItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                editGroupWindow.setVisible(true);
+            }
+        });
 
         JMenuItem deleteGroupItem = new JMenuItem("Удалить группу");
         deleteGroupItem.setFont(font);
         groupsMenu.add(deleteGroupItem);
+        deleteGroupItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                deleteGroupWindow.setVisible(true);
+            }
+        });
 
-        JMenuItem allGroups = new JMenuItem("Все");
+        JMenuItem allGroups = new JMenuItem("Все группы");
         allGroups.setFont(font);
         groupsMenu.add(allGroups);
         allGroups.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                GroupsWindow groupsWindow = new GroupsWindow(Application.getInstance().getGroups());
-                groupsWindow.setVisible(true);
+                    groupsWindow.setVisible(true);
+
             }
         });
 
