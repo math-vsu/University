@@ -1,6 +1,7 @@
 package ru.vsu.math.java.ui;
 
 import ru.vsu.math.java.Application;
+import ru.vsu.math.java.entity.Group;
 import ru.vsu.math.java.entity.Student;
 
 import javax.swing.*;
@@ -21,14 +22,18 @@ public class EditStudentWindow extends JFrame implements ActionListener {
     private JButton updateStudent;
     private JTextField studentNewFullNameField;
     private JComboBox editStudentComboBox;
+    private JComboBox studentGroupComboBox;
 
     public EditStudentWindow(Application app){
         super("Редактирование студента");
         setBounds(100, 100, 700, 700);
         this.app = app;
         List<Student> students = app.getStudents();
-        StudentsComboBoxModel model = new StudentsComboBoxModel(students);
-        editStudentComboBox = new JComboBox(model);
+        List<Group> groups = app.getGroups();
+        StudentsComboBoxModel studentsModel = new StudentsComboBoxModel(students);
+        editStudentComboBox = new JComboBox(studentsModel);
+        GroupsComboBoxModel groupsModel = new GroupsComboBoxModel(groups);
+        studentGroupComboBox = new JComboBox(groupsModel);
         studentNewFullNameField = new JTextField(20);
         updateStudent = new JButton("Обновить данные");
         updateStudent.addActionListener(this);
@@ -36,6 +41,7 @@ public class EditStudentWindow extends JFrame implements ActionListener {
         JPanel editStudentPanel = new JPanel(new GridLayout(0,1));
         editStudentPanel.add(editStudentComboBox);
         editStudentPanel.add(studentNewFullNameField);
+        editStudentPanel.add(studentGroupComboBox);
         editStudentPanel.add(updateStudent);
         add(editStudentPanel, BorderLayout.NORTH);
 
@@ -49,9 +55,10 @@ public class EditStudentWindow extends JFrame implements ActionListener {
         }
 
         if(src == updateStudent){
+            Group group=(Group)app.getGroups().get(studentGroupComboBox.getSelectedIndex());
             int selectedIndex = editStudentComboBox.getSelectedIndex();
             student = (Student)app.getStudents().get(selectedIndex);
-            app.updateStudent(student, studentNewFullNameField.getText());
+            app.updateStudent(student, studentNewFullNameField.getText(),group.getGroupId());
             this.setVisible(false);
         }
     }

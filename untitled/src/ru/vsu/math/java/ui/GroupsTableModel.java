@@ -15,7 +15,7 @@ public class GroupsTableModel extends AbstractTableModel implements TableModelLi
 
     @Override
     public int getRowCount() {
-        return Application.getInstance().getStudents().size();
+        return Application.getInstance().getGroups().size();
     }
     @Override
     public int getColumnCount() {
@@ -23,7 +23,7 @@ public class GroupsTableModel extends AbstractTableModel implements TableModelLi
     }
     @Override
     public String getValueAt(int row, int column) {
-        Group group = (Group) Application.getInstance().getStudents().get(row);
+        Group group = (Group) Application.getInstance().getGroups().get(row);
         switch (column) {
             case 0:
                 return group.getCourseNumber();

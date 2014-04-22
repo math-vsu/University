@@ -20,8 +20,8 @@ public class Application {
   public Application() {
   }
 
-  public void createStudent(String fullName, Group group, Integer studentId) {
-    addStudent(fullName, group, studentId).save();
+  public void createStudent(String fullName, Integer groupId, Integer studentId) {
+    addStudent(fullName, groupId, studentId).save();
   }
 
   public void deleteStudent(Student student){
@@ -29,8 +29,8 @@ public class Application {
      student.delete();
   }
 
-  public Student addStudent(String fullName, Group group, Integer studentId) {
-    Student student = new Student(fullName, group, studentId);
+  public Student addStudent(String fullName, Integer groupId, Integer studentId) {
+    Student student = new Student(fullName, groupId, studentId);
     students.add(student);
     return student;
   }
@@ -50,10 +50,10 @@ public class Application {
   }
 
   public void createGroup(String courseNumber, String groupNumber, String subGroupNumber){
-      addGroup(courseNumber,groupNumber,subGroupNumber).save();
+      addGroup(null,courseNumber,groupNumber,subGroupNumber).save();
   }
-  public Group addGroup(String courseNumber, String groupNumber, String subGroupNumber) {
-    Group group = new Group(courseNumber, groupNumber, subGroupNumber);
+  public Group addGroup(Integer id,String courseNumber, String groupNumber, String subGroupNumber) {
+    Group group = new Group(id,courseNumber, groupNumber, subGroupNumber);
     groups.add(group);
     return group;
   }
@@ -75,8 +75,9 @@ public class Application {
     return this.groups;
   }
 
-  public void updateStudent(Student student, String fullName){
+  public void updateStudent(Student student, String fullName, Integer groupId){
       student.setFullName(fullName);
+      student.setGroupId(groupId);
       student.update();
   }
   private void loadCollections() {
@@ -112,7 +113,7 @@ public class Application {
     private void loadGroups() {
         // Грязный трюк, так делать не надо
         // напомнить объяснить почему
-        Group groupLoader = new Group(null, null,null);
+        Group groupLoader = new Group(null,null, null,null);
         groupLoader.loadCollection();
     }
 

@@ -8,12 +8,12 @@ import java.sql.*;
 public class Student extends SQLRecord {
   private String fullName;
   private Integer studentId;
-  private Group group;
+  private Integer groupId;
 
-  public Student(String fullName, Group group, Integer studentId) {
+  public Student(String fullName, Integer groupId, Integer studentId) {
     this.fullName = fullName;
     this.studentId = studentId;
-    this.group = group;
+    this.groupId = groupId;
   };
 
   public String getFullName() {
@@ -31,14 +31,25 @@ public class Student extends SQLRecord {
     return this.studentId;
   }
 
-  public Group getGroup() {
-    return this.group;
+  public Integer getGroupId() {
+    return this.groupId;
   }
 
-  public void setGroup(Group group) {
-    this.group = group;
+  public void setGroupId(Integer groupId) {
+    this.groupId = groupId;
   }
 
+  public Group getGroup(){
+      Group group = null;
+      for(Object object : Application.getInstance().getGroups()){
+          Group currentGroup = (Group) object;
+          if (currentGroup.getGroupId() == this.getGroupId()) {
+              group = currentGroup;
+              break;
+          }
+      }
+      return group;
+  }
   @Override
   protected String tableName() {
     return "students";
@@ -51,13 +62,13 @@ public class Student extends SQLRecord {
 
   @Override
   protected String values() {
-    return "('" + fullName + "', 1)";
+    return "('" + fullName + "', '" + groupId + "')";
   }
 
   @Override
   protected void buildObject(ResultSet row) {
     try {
-      Application.getInstance().addStudent(row.getString("fullname"), null, row.getInt("id"));
+      Application.getInstance().addStudent(row.getString("fullname"),row.getInt("group_id"), row.getInt("id"));
     } catch(SQLException e) {
       e.printStackTrace();
     }
@@ -68,6 +79,6 @@ public class Student extends SQLRecord {
   }
   @Override
   protected String updateString(){
-     return "fullName= '"+this.fullName+"'";
+     return "fullName= '"+this.fullName+"', group_id= '"+this.groupId+"'";
   }
 }

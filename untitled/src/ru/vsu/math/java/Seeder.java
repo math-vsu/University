@@ -69,14 +69,14 @@ public class Seeder {
         "Новиков"
     };
 
+    if (app.getGroups().isEmpty()) {
+          app.createGroup("2", "3", "2");
+    }
+
     if (app.getTutors().isEmpty()) {
       for (String name : tutorNames) {
           app.createTutor(name, 1);
       }
-    }
-
-    if (app.getGroups().isEmpty()) {
-        app.createGroup("2", "3", "2");
     }
 
     // Создаем студентов, только если их список пуст

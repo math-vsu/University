@@ -57,7 +57,10 @@ public class EditGroupWindow extends JFrame implements ActionListener {
         Object src = actionEvent.getSource();
         Group group;
         if(src ==  editGroupComboBox){
-            groupNewField.setText(editGroupComboBox.getSelectedItem().toString());
+            group=(Group)app.getGroups().get(editGroupComboBox.getSelectedIndex());
+            courseNewField.setText((group.getCourseNumber()));
+            groupNewField.setText(group.getGroupNumber());
+            subgroupNewField.setText(group.getSubGroupNumber());
         }
 
         if(src == updateGroup){

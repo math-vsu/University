@@ -9,11 +9,21 @@ public class Group extends SQLRecord{
   private String courseNumber;
   private String groupNumber;
   private String subGroupNumber;
+  private Integer groupId;
 
-  public Group(String courseNumber, String groupNumber, String subGroupNumber) {
+  public Group(Integer groupId, String courseNumber, String groupNumber, String subGroupNumber) {
+    this.groupId = groupId;
     this.courseNumber = courseNumber;
     this.groupNumber = groupNumber;
     this.subGroupNumber = subGroupNumber;
+  }
+
+  public Integer getGroupId(){
+      return this.groupId;
+  }
+
+  public void setGroupId(Integer groupId){
+      this.groupId = groupId;
   }
 
   public String getCourseNumber() {
@@ -37,11 +47,15 @@ public class Group extends SQLRecord{
   }
 
   public void setSubGroupNumber(String subGroupNumber) {
-    this.courseNumber = subGroupNumber;
+    this.subGroupNumber = subGroupNumber;
+  }
+
+  public String name(){
+      return this.courseNumber + "." + this.groupNumber + "." + this.subGroupNumber;
   }
 
   public String toString() {
-    return this.courseNumber + "." + this.groupNumber + "." + this.subGroupNumber;
+    return name();
   }
 
     @Override
@@ -62,7 +76,7 @@ public class Group extends SQLRecord{
     @Override
     protected void buildObject(ResultSet row) {
         try {
-            Application.getInstance().addGroup(row.getString("course"), row.getString("group_num"), row.getString("subgroup"));
+            Application.getInstance().addGroup(row.getInt("id"), row.getString("course"), row.getString("group_num"), row.getString("subgroup"));
         } catch(SQLException e) {
             e.printStackTrace();
         }
@@ -70,11 +84,11 @@ public class Group extends SQLRecord{
 
     @Override
     protected Integer id() {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return getGroupId();
     }
 
     @Override
     protected String updateString() {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return "course='"+this.courseNumber+"', group_num='"+this.groupNumber+"', subgroup='"+this.subGroupNumber+"'";
     }
 }

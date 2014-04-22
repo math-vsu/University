@@ -26,7 +26,7 @@ public class StudentsTableModel extends AbstractTableModel implements TableModel
             case 0:
                 return student.getFullName();
             case 1:
-                return "TODO";
+                return student.getGroup().name();
             case 2:
                 return "";
             default:
