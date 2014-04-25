@@ -10,12 +10,14 @@ public class Group extends SQLRecord{
   private String groupNumber;
   private String subGroupNumber;
   private Integer groupId;
+  private String degree;
 
-  public Group(Integer groupId, String courseNumber, String groupNumber, String subGroupNumber) {
+  public Group(Integer groupId, String courseNumber, String groupNumber, String subGroupNumber, String degree) {
     this.groupId = groupId;
     this.courseNumber = courseNumber;
     this.groupNumber = groupNumber;
     this.subGroupNumber = subGroupNumber;
+    this.degree = degree;
   }
 
   public Integer getGroupId(){
@@ -54,13 +56,20 @@ public class Group extends SQLRecord{
       return this.courseNumber + "." + this.groupNumber + "." + this.subGroupNumber;
   }
 
+    public String getDegree(){
+        return this.degree;
+    }
+    public void  setDegree(String degree){
+        this.degree = degree;
+    }
+
   public String toString() {
     return name();
   }
 
     @Override
     protected String columnNames() {
-        return "(course,group_num,subgroup)";
+        return "(course,group_num,subgroup,degree)";
     }
 
     @Override
@@ -76,7 +85,7 @@ public class Group extends SQLRecord{
     @Override
     protected void buildObject(ResultSet row) {
         try {
-            Application.getInstance().addGroup(row.getInt("id"), row.getString("course"), row.getString("group_num"), row.getString("subgroup"));
+            Application.getInstance().addGroup(row.getInt("id"), row.getString("course"), row.getString("group_num"), row.getString("subgroup"), row.getString("degree"));
         } catch(SQLException e) {
             e.printStackTrace();
         }
@@ -89,6 +98,6 @@ public class Group extends SQLRecord{
 
     @Override
     protected String updateString() {
-        return "course='"+this.courseNumber+"', group_num='"+this.groupNumber+"', subgroup='"+this.subGroupNumber+"'";
+        return "course='"+this.courseNumber+"', group_num='"+this.groupNumber+"', subgroup='"+this.subGroupNumber+"', degree='"+this.degree+"'";
     }
 }

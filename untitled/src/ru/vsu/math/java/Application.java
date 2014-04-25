@@ -1,7 +1,10 @@
 package ru.vsu.math.java;
-import ru.vsu.math.java.entity.*;
-import java.util.*;
-import java.io.*;
+import ru.vsu.math.java.entity.Group;
+import ru.vsu.math.java.entity.Student;
+import ru.vsu.math.java.entity.Tutor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Application {
   private List<Student> students = new ArrayList<Student>();
@@ -49,11 +52,11 @@ public class Application {
     return tutor;
   }
 
-  public void createGroup(String courseNumber, String groupNumber, String subGroupNumber){
-      addGroup(null,courseNumber,groupNumber,subGroupNumber).save();
+  public void createGroup(String courseNumber, String groupNumber, String subGroupNumber,String degree){
+      addGroup(null,courseNumber,groupNumber,subGroupNumber,degree).save();
   }
-  public Group addGroup(Integer id,String courseNumber, String groupNumber, String subGroupNumber) {
-    Group group = new Group(id,courseNumber, groupNumber, subGroupNumber);
+  public Group addGroup(Integer id,String courseNumber, String groupNumber, String subGroupNumber, String degree) {
+    Group group = new Group(id,courseNumber, groupNumber, subGroupNumber,degree);
     groups.add(group);
     return group;
   }
@@ -104,16 +107,17 @@ public class Application {
         Tutor tutorLoader = new Tutor(null, null);
         tutorLoader.loadCollection();
     }
-    public void updateGroup(Group group, String courseNumber, String groupNumber,String subgroupNumber){
+    public void updateGroup(Group group, String courseNumber, String groupNumber,String subgroupNumber, String degree){
         group.setCourseNumber(courseNumber);
         group.setGroupNumber(groupNumber);
         group.setSubGroupNumber(subgroupNumber);
+        group.setDegree(degree);
         group.update();
     }
     private void loadGroups() {
         // Грязный трюк, так делать не надо
         // напомнить объяснить почему
-        Group groupLoader = new Group(null,null, null,null);
+        Group groupLoader = new Group(null,null, null,null,null);
         groupLoader.loadCollection();
     }
 

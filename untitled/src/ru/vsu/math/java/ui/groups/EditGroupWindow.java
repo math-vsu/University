@@ -1,8 +1,7 @@
-package ru.vsu.math.java.ui;
+package ru.vsu.math.java.ui.groups;
 
 import ru.vsu.math.java.Application;
 import ru.vsu.math.java.entity.Group;
-import ru.vsu.math.java.entity.Student;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,10 +18,14 @@ public class EditGroupWindow extends JFrame implements ActionListener {
     private JTextField courseNewField;
     private JTextField groupNewField;
     private JTextField subgroupNewField;
+    private JTextField degreeNewField;
+
     private JComboBox editGroupComboBox;
+
     private JLabel courseLabel;
     private JLabel groupLabel;
     private JLabel subgroupLabel;
+    private JLabel degreeLabel;
 
     public EditGroupWindow(Application app){
         super("Редактирование группы");
@@ -34,9 +37,11 @@ public class EditGroupWindow extends JFrame implements ActionListener {
         courseNewField = new JTextField(20);
         groupNewField = new JTextField(20);
         subgroupNewField = new JTextField(20);
+        degreeNewField = new JTextField(20);
         courseLabel = new JLabel("Курс");
         groupLabel = new JLabel("Группа");
         subgroupLabel = new JLabel("Подгруппа");
+        degreeLabel = new JLabel("Квалификация");
         updateGroup = new JButton("Обновить данные");
         updateGroup.addActionListener(this);
         editGroupComboBox.addActionListener(this);
@@ -48,6 +53,8 @@ public class EditGroupWindow extends JFrame implements ActionListener {
         editGroupPanel.add(groupNewField);
         editGroupPanel.add(subgroupLabel);
         editGroupPanel.add(subgroupNewField);
+        editGroupPanel.add(degreeLabel);
+        editGroupPanel.add(degreeNewField);
         editGroupPanel.add(updateGroup);
         add(editGroupPanel, BorderLayout.NORTH);
 
@@ -61,12 +68,13 @@ public class EditGroupWindow extends JFrame implements ActionListener {
             courseNewField.setText((group.getCourseNumber()));
             groupNewField.setText(group.getGroupNumber());
             subgroupNewField.setText(group.getSubGroupNumber());
+            degreeNewField.setText(group.getDegree());
         }
 
         if(src == updateGroup){
             int selectedIndex = editGroupComboBox.getSelectedIndex();
             group = (Group)app.getGroups().get(selectedIndex);
-            app.updateGroup(group,courseNewField.getText(), groupNewField.getText(), subgroupNewField.getText());
+            app.updateGroup(group,courseNewField.getText(), groupNewField.getText(), subgroupNewField.getText(), degreeNewField.getText());
             this.setVisible(false);
         }
     }

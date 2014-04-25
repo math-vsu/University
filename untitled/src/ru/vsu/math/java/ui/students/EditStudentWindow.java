@@ -1,8 +1,9 @@
-package ru.vsu.math.java.ui;
+package ru.vsu.math.java.ui.students;
 
 import ru.vsu.math.java.Application;
 import ru.vsu.math.java.entity.Group;
 import ru.vsu.math.java.entity.Student;
+import ru.vsu.math.java.ui.groups.GroupsComboBoxModel;
 
 import javax.swing.*;
 import java.awt.*;

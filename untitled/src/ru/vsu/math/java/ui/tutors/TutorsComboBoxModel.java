@@ -1,21 +1,19 @@
-package ru.vsu.math.java.ui;
+package ru.vsu.math.java.ui.tutors;
 
-import ru.vsu.math.java.entity.Group;
-import ru.vsu.math.java.entity.Student;
-
+import ru.vsu.math.java.entity.Tutor;
 import javax.swing.*;
 import java.util.List;
 
 /**
- * Created by Дмитрий on 11.04.14.
+ * Created by Дмитрий on 03.04.14.
  */
-class GroupsComboBoxModel extends AbstractListModel implements MutableComboBoxModel {
+class TutorsComboBoxModel extends AbstractListModel implements MutableComboBoxModel {
 
-    private List<Group> groups;
+    private List<Tutor> tutors;
     private Object selectedItem;
 
-    public GroupsComboBoxModel(List<Group> groups) {
-        this.groups = groups;
+    public TutorsComboBoxModel(List<Tutor> tutors) {
+        this.tutors = tutors;
     }
 
     @Override
@@ -30,12 +28,12 @@ class GroupsComboBoxModel extends AbstractListModel implements MutableComboBoxMo
 
     @Override
     public int getSize() {
-        return groups.size();
+        return tutors.size();
     }
 
     @Override
     public Object getElementAt(int index) {
-        return groups.get(index);
+        return tutors.get(index);
     }
 
     @Override

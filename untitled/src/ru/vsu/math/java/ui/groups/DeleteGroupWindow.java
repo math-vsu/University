@@ -1,8 +1,7 @@
-package ru.vsu.math.java.ui;
+package ru.vsu.math.java.ui.groups;
 
 import ru.vsu.math.java.Application;
 import ru.vsu.math.java.entity.Group;
-import ru.vsu.math.java.entity.Student;
 
 import javax.swing.*;
 import java.awt.*;

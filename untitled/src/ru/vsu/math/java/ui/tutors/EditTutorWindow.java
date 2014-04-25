@@ -1,7 +1,6 @@
-package ru.vsu.math.java.ui;
+package ru.vsu.math.java.ui.tutors;
 
 import ru.vsu.math.java.Application;
-import ru.vsu.math.java.entity.Student;
 import ru.vsu.math.java.entity.Tutor;
 
 import javax.swing.*;

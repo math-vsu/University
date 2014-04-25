@@ -1,8 +1,21 @@
 package ru.vsu.math.java.ui;
+import ru.vsu.math.java.Application;
+import ru.vsu.math.java.entity.Group;
+import ru.vsu.math.java.ui.groups.*;
+import ru.vsu.math.java.ui.students.AddStudentWindow;
+import ru.vsu.math.java.ui.students.DeleteStudentWindow;
+import ru.vsu.math.java.ui.students.EditStudentWindow;
+import ru.vsu.math.java.ui.students.StudentsWindow;
+import ru.vsu.math.java.ui.tutors.AddTutorWindow;
+import ru.vsu.math.java.ui.tutors.DeleteTutorWindow;
+import ru.vsu.math.java.ui.tutors.EditTutorWindow;
+import ru.vsu.math.java.ui.tutors.TutorsWindow;
+
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
-import ru.vsu.math.java.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 
 //класс отвечает за всю графическую оболочку
@@ -22,6 +35,15 @@ public class MainUI extends JFrame {
     private AddGroupWindow addGroupWindow;
     private DeleteGroupWindow deleteGroupWindow;
     private EditGroupWindow editGroupWindow;
+
+    private JMenu firstCourse;
+    private JMenu secondCourse;
+
+    private JMenu firstCourseM;
+    private JMenu secondCourseM;
+
+    private java.util.List<GroupMenuItem> groupMenuItems = new ArrayList<GroupMenuItem>();
+
 
     public MainUI(Application app) {
         super("University"); //Заголовок окна
@@ -171,12 +193,12 @@ public class MainUI extends JFrame {
         bachelorMenu.setFont(font);
         groupsList.add(bachelorMenu);
 
-        JMenu firstCourse = new JMenu("1 курс");
+        firstCourse = new JMenu("1 курс");
         firstCourse.setFont(font);
         bachelorMenu.add(firstCourse);
 
 
-        JMenu secondCourse = new JMenu("2 курс");
+        secondCourse = new JMenu("2 курс");
         secondCourse.setFont(font);
         bachelorMenu.add(secondCourse);
 
@@ -198,11 +220,11 @@ public class MainUI extends JFrame {
         magisterMenu.setFont(font);
         groupsList.add(magisterMenu);
 
-        JMenu firstCourseM = new JMenu("1 курс");
+        firstCourseM = new JMenu("1 курс");
         firstCourseM.setFont(font);
         magisterMenu.add(firstCourseM);
 
-        JMenu secondCourseM = new JMenu("2 курс");
+        secondCourseM = new JMenu("2 курс");
         secondCourseM.setFont(font);
         magisterMenu.add(secondCourseM);
 
@@ -289,6 +311,12 @@ public class MainUI extends JFrame {
         editTimeTableItem.setFont(font);
         timeTable.add(editTimeTableItem);
 
+        for(Object group: app.getGroups()){
+            GroupMenuItem  newMenuItem = new GroupMenuItem(group.toString(),(Group)group);
+            groupMenuItems.add(newMenuItem);
+            addItemToGroupsMenu(newMenuItem);
+        }
+
         //Располагаем все меню на главном баре
         mainMenuBar.add(fileMenu);
         mainMenuBar.add(studentsMenu);
@@ -297,5 +325,25 @@ public class MainUI extends JFrame {
         mainMenuBar.add(timeTable);
         this.add(mainMenuBar);
         this.setJMenuBar(mainMenuBar);
+    }
+
+    public void addItemToGroupsMenu(GroupMenuItem groupMenuItem){
+        if(groupMenuItem.getGroup().getDegree()== "bachelor"){
+             switch (groupMenuItem.getGroup().getCourseNumber().charAt(0)){
+                 case '1':  firstCourse.add(groupMenuItem); break;
+                 case '2':  secondCourse.add(groupMenuItem); break;
+                 default: break;
+             }
+        }
+
+        else {
+              if (groupMenuItem.getGroup().getDegree()== "master"){
+                  switch(groupMenuItem.getGroup().getCourseNumber().charAt(0)){
+                      case '1':  firstCourseM.add(groupMenuItem) ;break;
+                      case '2':  secondCourseM.add(groupMenuItem);break;
+                      default: break;
+                  }
+              }
+        }
     }
 }

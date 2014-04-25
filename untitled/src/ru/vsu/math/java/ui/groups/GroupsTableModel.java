@@ -1,4 +1,4 @@
-package ru.vsu.math.java.ui;
+package ru.vsu.math.java.ui.groups;
 
 import ru.vsu.math.java.Application;
 import ru.vsu.math.java.entity.Group;
@@ -19,7 +19,7 @@ public class GroupsTableModel extends AbstractTableModel implements TableModelLi
     }
     @Override
     public int getColumnCount() {
-        return 3;
+        return 4;
     }
     @Override
     public String getValueAt(int row, int column) {
@@ -31,6 +31,8 @@ public class GroupsTableModel extends AbstractTableModel implements TableModelLi
                 return group.getGroupNumber();
             case 2:
                 return group.getSubGroupNumber();
+            case 3:
+                return group.getDegree();
             default:
                 return "";
         }
@@ -47,6 +49,9 @@ public class GroupsTableModel extends AbstractTableModel implements TableModelLi
                 break;
             case 2:
                 result = "Подгруппа";
+                break;
+            case 3:
+                result = "Квалификация";
                 break;
             default:
                 return "";

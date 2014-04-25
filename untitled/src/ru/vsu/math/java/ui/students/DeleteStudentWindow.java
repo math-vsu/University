@@ -1,11 +1,10 @@
-package ru.vsu.math.java.ui;
+package ru.vsu.math.java.ui.students;
 import ru.vsu.math.java.Application;
 import ru.vsu.math.java.entity.Student;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.*;
 import java.util.List;
 
 /**

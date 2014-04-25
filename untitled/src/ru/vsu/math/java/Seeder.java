@@ -30,6 +30,7 @@ public class Seeder {
          "course varchar(255) NOT NULL, " +
          "group_num varchar(255) NOT NULL, " +
          "subgroup varchar(255) NOT NULL, " +
+         "degree varchar(255) NOT NULL, " +
          "PRIMARY KEY (id));",
       };
 
@@ -70,7 +71,8 @@ public class Seeder {
     };
 
     if (app.getGroups().isEmpty()) {
-          app.createGroup("2", "3", "2");
+        app.createGroup("2", "3", "2","bachelor");
+        app.createGroup("1", "1", "1","master");
     }
 
     if (app.getTutors().isEmpty()) {

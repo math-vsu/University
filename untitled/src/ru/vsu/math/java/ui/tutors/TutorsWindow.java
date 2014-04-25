@@ -1,38 +1,34 @@
-package ru.vsu.math.java.ui;
-import javax.swing.*;
-import java.awt.*;
-import java.util.List;
-import java.awt.event.*;
+package ru.vsu.math.java.ui.tutors;
 
 import ru.vsu.math.java.Application;
-import ru.vsu.math.java.entity.Group;
-/**
- * Created by Дмитрий on 09.03.14.
- */
-public class GroupsWindow extends JFrame {
+
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import javax.swing.*;
+
+public class TutorsWindow extends JFrame {
     //Массив содержащий заголоки таблицы
-    String[] headers = {"Курс","Группа","Подгруппа"};
+    String[] headers = {"ФИО"};
 
     //Объект таблицы
-    JTable groupsTab;
+    JTable tutorsTab;
     Application app;
-    GroupsTableModel model;
+    TutorsTableModel model;
 
-    public GroupsWindow(Application app) {
-        super("Список групп");
+    public TutorsWindow(Application app) {
+        super("Список преподавателей");
         this.app = app;
-        this.model = new GroupsTableModel();
+        this.model = new TutorsTableModel();
 
         this.getContentPane().setLayout(new FlowLayout());
         //Устанавливаем размер окна
         this.setSize(1000, 170);
         //Создаем новую таблицу на основе двумерного массива данных и заголовков
-        groupsTab = new JTable(model);
-        //studentsTab = new JTable(new UTableModel());
+        tutorsTab = new JTable(model);
         //Создаем панель прокрутки и включаем в ее состав нашу таблицу
-        JScrollPane jscrlp = new JScrollPane(groupsTab);
+        JScrollPane jscrlp = new JScrollPane(tutorsTab);
         //Устаналиваем размеры прокручиваемой области
-        groupsTab.setPreferredScrollableViewportSize(new Dimension(950, 170));
+        tutorsTab.setPreferredScrollableViewportSize(new Dimension(950, 170));
         //Добавляем в контейнер нашу панель прокрути и таблицу вместе с ней
         this.getContentPane().add(jscrlp);
     }
