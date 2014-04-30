@@ -39,3 +39,6 @@ Java проект для Матфак ВГУ
 * HttpRecord делает запросы к REST Api
 * servlets, java ee, tomcat
 * hibernate
+
+Доп:
+* Попробовать написать тесты на JUnit
