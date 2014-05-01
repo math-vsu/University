@@ -74,7 +74,7 @@ public class Group extends SQLRecord{
 
     @Override
     protected String values() {
-        return "('" + courseNumber + "', '" + groupNumber + "', '" + subGroupNumber + "')";
+        return "('" + courseNumber + "', '" + groupNumber + "', '" + subGroupNumber + "', '" + degree + "')";
     }
 
     @Override

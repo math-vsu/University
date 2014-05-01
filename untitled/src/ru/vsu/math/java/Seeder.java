@@ -81,11 +81,10 @@ public class Seeder {
       }
     }
 
-    // Создаем студентов, только если их список пуст
-    // A cписок бывает пустым только когда в файле ничего нет
+    Group firstGroup = (Group)app.getGroups().get(1);
     if (app.getStudents().isEmpty()) {
       for (String name : studentNames) {
-        app.createStudent(name, null, 0);
+        app.createStudent(name, firstGroup.getGroupId(), 0);
       }
     }
 
