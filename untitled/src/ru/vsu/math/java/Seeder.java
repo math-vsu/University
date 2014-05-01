@@ -11,20 +11,20 @@ public class Seeder {
   public static void createTables() {
     try {
       String[] table_schemas = {
-        "create table " +
+        "create table IF NOT EXISTS " +
         "students" +
         "(id integer auto_increment NOT NULL, " +
         "fullname varchar(255) NOT NULL, " +
         "group_id integer NOT NULL, " +
         "PRIMARY KEY (id));",
 
-        "create table " +
+        "create table IF NOT EXISTS " +
         "tutors" +
         "(id integer auto_increment NOT NULL, " +
         "fullname varchar(255) NOT NULL, " +
         "PRIMARY KEY (id));",
 
-         "create table " +
+         "create table IF NOT EXISTS " +
          "groups" +
          "(id integer auto_increment NOT NULL, " +
          "course varchar(255) NOT NULL, " +
