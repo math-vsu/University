@@ -1,4 +1,5 @@
 package ru.vsu.math.java;
+import ru.vsu.math.java.entity.DoubleClass;
 import ru.vsu.math.java.entity.Group;
 import ru.vsu.math.java.entity.Student;
 import ru.vsu.math.java.entity.Tutor;
@@ -10,6 +11,7 @@ public class Application {
   private List<Student> students = new ArrayList<Student>();
   private List<Group> groups = new ArrayList<Group>();
   private List<Tutor> tutors = new ArrayList<Tutor>();
+  private List<DoubleClass> doubleClasses = new ArrayList<DoubleClass>();
 
   private static Application instance = null;
   public static Application getInstance() {
@@ -66,6 +68,22 @@ public class Application {
       group.delete();
   }
 
+    public void createDoubleClass(Integer groupId, Integer tutorId, Integer weekday,Integer number, String classroom){
+        addDoubleClass(groupId,tutorId, weekday, number, classroom).save();
+    }
+    public DoubleClass addDoubleClass(Integer groupId, Integer tutorId, Integer weekday,Integer number, String classroom) {
+        DoubleClass doubleClass = new DoubleClass(groupId, tutorId, weekday, number, classroom);
+        doubleClasses.add(doubleClass);
+        return doubleClass;
+    }
+
+    public void deleteDoubleClass(DoubleClass doubleClass){
+        doubleClasses.remove(doubleClass);
+        doubleClass.delete();
+    }
+
+
+
   public List getStudents() {
     return this.students;
   }
@@ -78,6 +96,10 @@ public class Application {
     return this.groups;
   }
 
+  public List getDoubleClasses(){
+      return this.doubleClasses;
+  }
+
   public void updateStudent(Student student, String fullName, Integer groupId){
       student.setFullName(fullName);
       student.setGroupId(groupId);
@@ -87,6 +109,7 @@ public class Application {
     loadStudents();
     loadTutors();
     loadGroups();
+    loadDoubleClasses();
   }
 
   private void loadStudents() {
@@ -119,6 +142,21 @@ public class Application {
         // напомнить объяснить почему
         Group groupLoader = new Group(null,null, null,null,null);
         groupLoader.loadCollection();
+    }
+
+    public void updateDoubleClass(DoubleClass doubleClass, Integer groupId, Integer tutorId, Integer weekday,Integer number, String classroom ){
+        doubleClass.setGroupId(groupId);
+        doubleClass.setTutorId(tutorId);
+        doubleClass.setWeekday(weekday);
+        doubleClass.setNumber(number);
+        doubleClass.setClassroom(classroom);
+        doubleClass.update();
+    }
+    private void loadDoubleClasses(){
+        // Грязный трюк, так делать не надо
+        // напомнить объяснить почему
+        DoubleClass doubleClassLoader = new DoubleClass(null,null, null,null,null);
+        doubleClassLoader.loadCollection();
     }
 
 

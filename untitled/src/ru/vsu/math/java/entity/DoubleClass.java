@@ -1,16 +1,24 @@
 package ru.vsu.math.java.entity;
 
-public class DoubleClass {
-  private Integer groupId;
-  private Integer weekday;
-  private Integer doubleClassNumber;
-  private Integer tutorId;
+import ru.vsu.math.java.Application;
 
-  public DoubleClass(Integer groupId, Integer weekday, Integer doubleClassNumber, Integer tutorId) {
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class DoubleClass extends SQLRecord{
+  private Integer groupId;
+  private Integer tutorId;
+  private Integer weekday;
+  private Integer number;
+  private String classroom;
+
+
+  public DoubleClass(Integer groupId, Integer tutorId, Integer weekday, Integer number, String classroom) {
     this.groupId = groupId;
-    this.weekday = weekday;
-    this.doubleClassNumber = doubleClassNumber;
     this.tutorId = tutorId;
+    this.weekday = weekday;
+    this.number = number;
+    this.classroom = classroom;
   }
 
   public Integer getGroupId() {
@@ -21,6 +29,14 @@ public class DoubleClass {
     this.groupId = groupId;
   }
 
+  public Integer getTutorId() {
+        return this.groupId;
+  }
+
+  public void setTutorId(Integer tutorId) {
+        this.tutorId = tutorId;
+  }
+
   public Integer getWeekday() {
     return this.weekday;
   }
@@ -29,19 +45,54 @@ public class DoubleClass {
     this.weekday = weekday;
   }
 
-  public Integer getDoubleClassNumber() {
-    return this.doubleClassNumber;
+  public Integer getNumber() {
+    return this.number;
   }
 
-  public void setDoubleClassNumber(Integer doubleClassNumber) {
-    this.doubleClassNumber = doubleClassNumber;
+  public void setNumber(Integer doubleClassNumber) {
+    this.number = number;
   }
 
-  public Integer getTutorId() {
-    return this.groupId;
+  public String getClassroom(){
+      return this.classroom;
   }
 
-  public void setTutorId(Integer tutorId) {
-    this.tutorId = tutorId;
+  public void setClassroom(String classroom){
+     this.classroom = classroom;
   }
+
+
+    @Override
+    protected String columnNames() {
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    protected String values() {
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    protected String tableName() {
+        return "doubleclasses";  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    protected void buildObject(ResultSet row) {
+        try {
+            Application.getInstance().addStudent(row.getInt("group_id"),row.getInt("tutor_id"), row.getInt("id"),row.getInt("id"),row.getInt("id"));
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    protected Integer id() {
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    protected String updateString() {
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    }
 }
