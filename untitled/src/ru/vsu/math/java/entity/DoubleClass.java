@@ -64,12 +64,12 @@ public class DoubleClass extends SQLRecord{
 
     @Override
     protected String columnNames() {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return "(group_id,tutor_id,weekday,number,classroom)";  //To change body of implemented methods use File | Settings | File Templates.
     }
 
     @Override
     protected String values() {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return "('" + groupId + "', '" + tutorId + "', '" + weekday + "', '" + number + "', '" + classroom + "')";
     }
 
     @Override
@@ -80,7 +80,7 @@ public class DoubleClass extends SQLRecord{
     @Override
     protected void buildObject(ResultSet row) {
         try {
-            Application.getInstance().addStudent(row.getInt("group_id"),row.getInt("tutor_id"), row.getInt("id"),row.getInt("id"),row.getInt("id"));
+            Application.getInstance().addDoubleClass(row.getInt("group_id"),row.getInt("tutor_id"), row.getInt("weekday"),row.getInt("number"),row.getString("class"));
         } catch(SQLException e) {
             e.printStackTrace();
         }
@@ -93,6 +93,6 @@ public class DoubleClass extends SQLRecord{
 
     @Override
     protected String updateString() {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return "group_id='"+this.groupId+"', tutor_id='"+this.tutorId+"', weekday='"+this.weekday+"', number='"+this.number+"', classroom='"+this.classroom+"'";
     }
 }

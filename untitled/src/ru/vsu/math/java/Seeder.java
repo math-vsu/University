@@ -32,6 +32,16 @@ public class Seeder {
          "subgroup varchar(255) NOT NULL, " +
          "degree varchar(255) NOT NULL, " +
          "PRIMARY KEY (id));",
+
+         "create table IF NOT EXISTS " +
+         "doubleclasses" +
+         "(id integer auto_increment NOT NULL, " +
+         "group_id integer NOT NULL, " +
+         "tutor_id integer NOT NULL, " +
+         "weekday integer NOT NULL, " +
+         "number integer NOT NULL, " +
+         "classroom varchar(255) NOT NULL, " +
+         "PRIMARY KEY (id));",
       };
 
       for (String table_schema : table_schemas) {

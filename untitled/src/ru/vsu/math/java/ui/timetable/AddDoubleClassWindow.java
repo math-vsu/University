@@ -34,8 +34,7 @@ public class AddDoubleClassWindow extends JFrame implements ActionListener {
         Object src = actionEvent.getSource();
         DoubleClass doubleClass;
         if (src == addDoubleClassButton){
-            String name = addDoubleClassButton.getText();
-            app.createStudent(name,null,null);
+            app.createDoubleClass(null,null,null,null,null);
             this.setVisible(false);
         }
 

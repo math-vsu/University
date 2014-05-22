@@ -15,6 +15,7 @@ import java.util.List;
 public class EditGroupWindow extends JFrame implements ActionListener {
     private Application app;
     private JButton updateGroup;
+
     private JTextField courseNewField;
     private JTextField groupNewField;
     private JTextField subgroupNewField;

@@ -15,7 +15,7 @@ public class DoubleClassesWindow extends JFrame {
     DoubleClassesTableModel model;
 
     public DoubleClassesWindow(Application app) {
-        super("Список студентов");
+        super("Список пар");
         this.app = app;
         this.model = new DoubleClassesTableModel();
 

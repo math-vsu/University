@@ -6,6 +6,10 @@ import ru.vsu.math.java.ui.students.AddStudentWindow;
 import ru.vsu.math.java.ui.students.DeleteStudentWindow;
 import ru.vsu.math.java.ui.students.EditStudentWindow;
 import ru.vsu.math.java.ui.students.StudentsWindow;
+import ru.vsu.math.java.ui.timetable.AddDoubleClassWindow;
+import ru.vsu.math.java.ui.timetable.DeleteDoubleClassWindow;
+import ru.vsu.math.java.ui.timetable.DoubleClassesWindow;
+import ru.vsu.math.java.ui.timetable.EditDoubleClassWindow;
 import ru.vsu.math.java.ui.tutors.AddTutorWindow;
 import ru.vsu.math.java.ui.tutors.DeleteTutorWindow;
 import ru.vsu.math.java.ui.tutors.EditTutorWindow;
@@ -36,6 +40,11 @@ public class MainUI extends JFrame {
     private DeleteGroupWindow deleteGroupWindow;
     private EditGroupWindow editGroupWindow;
 
+    private DoubleClassesWindow  doubleClassesWindow;
+    private AddDoubleClassWindow addDoubleClassWindow;
+    private DeleteDoubleClassWindow deleteDoubleClassWindow;
+    private EditDoubleClassWindow editDoubleClassWindow;
+
     private JMenu firstCourse;
     private JMenu secondCourse;
 
@@ -65,6 +74,10 @@ public class MainUI extends JFrame {
         deleteGroupWindow = new DeleteGroupWindow(app);
         editGroupWindow = new EditGroupWindow(app);
 
+        doubleClassesWindow  = new DoubleClassesWindow(app);
+        addDoubleClassWindow = new AddDoubleClassWindow(app);
+        deleteDoubleClassWindow = new DeleteDoubleClassWindow(app);
+        editDoubleClassWindow = new EditDoubleClassWindow(app);
 
         setBounds(400, 400, 400, 400); //Если не выставить размер и положение - то окно будет мелкое и незаметное
 
@@ -306,10 +319,47 @@ public class MainUI extends JFrame {
         secondCourseMtimeTable.setFont(font);
         magisterTimeTableMenu.add(secondCourseMtimeTable);
 
+        //------------------------------//
+        JMenuItem doubleClassesItem = new JMenuItem("Список пар");
+        doubleClassesItem.setFont(font);
+        timeTable.add(doubleClassesItem);
+        doubleClassesItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                doubleClassesWindow.setVisible(true);
+            }
+        });
+
+        JMenuItem addDoubleClassesItem = new JMenuItem("Добавить пару");
+        addDoubleClassesItem.setFont(font);
+        timeTable.add(addDoubleClassesItem);
+        addDoubleClassesItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                addDoubleClassWindow.setVisible(true);
+            }
+        });
+
+        JMenuItem deleteDoubleClassesItem = new JMenuItem("Удалить пару");
+        deleteDoubleClassesItem.setFont(font);
+        timeTable.add(deleteDoubleClassesItem);
+        deleteDoubleClassesItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                deleteDoubleClassWindow.setVisible(true);
+            }
+        });
+
+        JMenuItem editDoubleClassItem = new JMenuItem("Редактировать пару");
+        editDoubleClassItem.setFont(font);
+        timeTable.add(editDoubleClassItem);
+        editDoubleClassItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                editDoubleClassWindow.setVisible(true);
+            }
+        });
 
         JMenuItem editTimeTableItem = new JMenuItem("Редактировать расписание");
         editTimeTableItem.setFont(font);
         timeTable.add(editTimeTableItem);
+
 
         for(Object group: app.getGroups()){
             GroupMenuItem  newMenuItem = new GroupMenuItem(group.toString(),(Group)group);
